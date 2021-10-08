@@ -234,7 +234,9 @@ retry_transfer.response <- function(res)
 
 as_datetime <- function(x, format="%a, %d %b %Y %H:%M:%S", tz="GMT")
 {
-    as.POSIXct(x, format=format, tz=tz)
+    # We noticed that it does not work on Exploratory Desktop so use lubridate::dmy_hms to workaround it.
+    # as.POSIXct(x, format=format, tz=tz)
+    lubridate::dmy_hms(x)
 }
 
 
