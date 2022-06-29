@@ -411,9 +411,9 @@ list_blobs <- function(container, dir="/", info=c("partial", "name", "all"),
             if(info == "all")
             {
                 if(!is.null(df$`Last-Modified`))
-                    df$`Last-Modified` <- as_datetime(df$`Last-Modified`)
+                    df$`Last-Modified` <- as_datetime_internal(df$`Last-Modified`)
                 if(!is.null(df$`Creation-Time`))
-                    df$`Creation-Time` <- as_datetime(df$`Creation-Time`)
+                    df$`Creation-Time` <- as_datetime_internal(df$`Creation-Time`)
                 vctrs::vec_cbind(df[c(namecol, sizecol, dircol, typecol)], df[-c(namecol, sizecol, dircol, typecol)])
             }
             else df[c(namecol, sizecol, dircol, typecol)]
